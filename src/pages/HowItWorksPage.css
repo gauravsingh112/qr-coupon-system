@@ -1,0 +1,237 @@
+.how-it-works-page {
+    position: relative;
+    min-height: 100vh;
+}
+
+.how-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.how-nav {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--spacing-lg) 0;
+}
+
+/* Hero */
+.how-hero {
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.how-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.how-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--spacing-lg);
+}
+
+.how-hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Steps Timeline */
+.steps-section {
+    padding: 4rem 0;
+}
+
+.steps-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.step-item {
+    position: relative;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.step-content {
+    width: 100%;
+}
+
+.step-card {
+    padding: var(--spacing-2xl);
+    position: relative;
+    max-width: 500px;
+}
+
+.step-left .step-card {
+    margin-right: auto;
+}
+
+.step-right .step-card {
+    margin-left: auto;
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    right: var(--spacing-lg);
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.step-card p {
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.timeline-connector {
+    position: absolute;
+    left: 50%;
+    bottom: -var(--spacing-3xl);
+    transform: translateX(-50%);
+    width: 3px;
+    height: var(--spacing-3xl);
+    background: var(--gradient-primary);
+    transform-origin: top;
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: 6rem 0;
+    background: var(--bg-secondary);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.benefit-card {
+    padding: var(--spacing-2xl);
+    text-align: center;
+}
+
+.benefit-check {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-lg);
+    background: var(--gradient-success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.benefit-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.benefit-card p {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* CTA */
+.how-cta {
+    padding: 6rem 0;
+}
+
+.cta-card {
+    text-align: center;
+    padding: var(--spacing-3xl);
+}
+
+.cta-card h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-card p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .how-hero {
+        padding: 4rem 0 2rem;
+    }
+
+    .step-card {
+        max-width: 100%;
+    }
+
+    .step-left .step-card,
+    .step-right .step-card {
+        margin: 0;
+    }
+
+    .timeline-connector {
+        display: none;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+
+    .nav-right .nav-link {
+        display: none;
+    }
+}
