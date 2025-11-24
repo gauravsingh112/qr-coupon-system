@@ -292,86 +292,84 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* Animated Footer */}
+            {/* Creative Footer */}
             <footer className="landing-footer">
                 <div className="footer-bg">
-                    <div className="footer-gradient"></div>
-                    <div className="footer-grid-pattern"></div>
+                    <div className="footer-orb orb-1"></div>
+                    <div className="footer-orb orb-2"></div>
                 </div>
 
-                <div className="container">
-                    <div className="footer-content">
-                        <motion.div
-                            className="footer-main"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <div className="footer-brand-section">
+                <div className="container footer-content">
+                    <div className="footer-grid">
+                        {/* Brand & Contact */}
+                        <div className="footer-left">
+                            <div className="footer-brand">
+                                <QrCode size={40} className="text-primary-400" />
+                                <span className="brand-text">QR Coupon</span>
+                            </div>
+
+                            <div className="contact-box">
+                                <div className="contact-title">
+                                    <Mail size={20} />
+                                    <span>Get in Touch</span>
+                                </div>
+                                <a href="mailto:sgteamdev@gmail.com" className="mail-button">
+                                    <span className="mail-text">sgteamdev@gmail.com</span>
+                                    <ArrowRight size={16} />
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Developers */}
+                        <div className="footer-right">
+                            <h3 className="section-title">Meet the Creators</h3>
+                            <div className="dev-grid">
                                 <motion.div
-                                    className="footer-logo"
-                                    whileHover={{ scale: 1.05 }}
+                                    className="holo-card"
+                                    whileHover={{ y: -5 }}
                                 >
-                                    <QrCode size={32} />
-                                    <span className="gradient-text">QR Coupon System</span>
+                                    <div className="dev-header">
+                                        <div className="dev-avatar">GS</div>
+                                        <div>
+                                            <h4 className="dev-name">Gaurav Singh</h4>
+                                            <p className="dev-role">Full Stack Developer</p>
+                                        </div>
+                                    </div>
+                                    <div className="dev-tags">
+                                        <span className="dev-tag">React</span>
+                                        <span className="dev-tag">Node.js</span>
+                                        <span className="dev-tag">UI/UX</span>
+                                    </div>
                                 </motion.div>
-                                <p className="footer-tagline">Revolutionizing customer loyalty, one scan at a time.</p>
 
-                                <div className="team-info">
-                                    <h3 className="team-name">SG TEAM</h3>
-                                    <a href="mailto:sgteamdev@gmail.com" className="team-email">
-                                        <Mail size={16} />
-                                        sgteamdev@gmail.com
-                                    </a>
-                                </div>
+                                <motion.div
+                                    className="holo-card"
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <div className="dev-header">
+                                        <div className="dev-avatar">SK</div>
+                                        <div>
+                                            <h4 className="dev-name">Satyam Kumar</h4>
+                                            <p className="dev-role">Android + Full Stack</p>
+                                        </div>
+                                    </div>
+                                    <div className="dev-tags">
+                                        <span className="dev-tag">Mobile</span>
+                                        <span className="dev-tag">Backend</span>
+                                        <span className="dev-tag">API</span>
+                                    </div>
+                                </motion.div>
                             </div>
+                        </div>
+                    </div>
 
-                            <div className="developers-section">
-                                <h3 className="dev-title">Meet the Developers</h3>
-                                <div className="dev-cards">
-                                    <motion.div
-                                        className="dev-card card-glass"
-                                        whileHover={{ y: -10, rotate: 1 }}
-                                    >
-                                        <div className="dev-avatar gradient-primary">
-                                            <span>GS</span>
-                                        </div>
-                                        <div className="dev-info">
-                                            <h4>Gaurav Singh</h4>
-                                            <p>Full Stack Developer</p>
-                                        </div>
-                                    </motion.div>
-
-                                    <motion.div
-                                        className="dev-card card-glass"
-                                        whileHover={{ y: -10, rotate: -1 }}
-                                    >
-                                        <div className="dev-avatar gradient-accent">
-                                            <span>SK</span>
-                                        </div>
-                                        <div className="dev-info">
-                                            <h4>Satyam Kumar</h4>
-                                            <p>Android + Full Stack Dev</p>
-                                        </div>
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            className="footer-bottom"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 }}
-                        >
-                            <p>&copy; 2025 SG TEAM. All rights reserved.</p>
-                            <div className="footer-links">
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">Terms of Service</a>
-                            </div>
-                        </motion.div>
+                    <div className="footer-bottom">
+                        <p>&copy; 2025 SG TEAM. All rights reserved.</p>
+                        <div className="footer-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Cookie Policy</a>
+                        </div>
                     </div>
                 </div>
             </footer>
