@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { QrCode, Gift, Shield, Zap, TrendingUp, Users, ArrowRight, Sparkles, Mail } from 'lucide-react';
+import { QrCode, Gift, Shield, Zap, TrendingUp, Users, ArrowRight, Sparkles } from 'lucide-react';
 import ThemeToggle from '../components/ThemeToggle';
+import ContactForm from '../components/ContactForm';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -292,7 +293,7 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* Creative Footer */}
+            {/* Creative Footer with Contact Form */}
             <footer className="landing-footer">
                 <div className="footer-bg">
                     <div className="footer-orb orb-1"></div>
@@ -301,23 +302,14 @@ const LandingPage = () => {
 
                 <div className="container footer-content">
                     <div className="footer-grid">
-                        {/* Brand & Contact */}
+                        {/* Contact Form */}
                         <div className="footer-left">
                             <div className="footer-brand">
-                                <QrCode size={40} className="text-primary-400" />
+                                <QrCode size={40} />
                                 <span className="brand-text">QR Coupon</span>
                             </div>
 
-                            <div className="contact-box">
-                                <div className="contact-title">
-                                    <Mail size={20} />
-                                    <span>Get in Touch</span>
-                                </div>
-                                <a href="mailto:sgteamdev@gmail.com" className="mail-button">
-                                    <span className="mail-text">sgteamdev@gmail.com</span>
-                                    <ArrowRight size={16} />
-                                </a>
-                            </div>
+                            <ContactForm />
                         </div>
 
                         {/* Developers */}
@@ -326,7 +318,8 @@ const LandingPage = () => {
                             <div className="dev-grid">
                                 <motion.div
                                     className="holo-card"
-                                    whileHover={{ y: -5 }}
+                                    whileHover={{ y: -8 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     <div className="dev-header">
                                         <div className="dev-avatar">GS</div>
@@ -344,7 +337,8 @@ const LandingPage = () => {
 
                                 <motion.div
                                     className="holo-card"
-                                    whileHover={{ y: -5 }}
+                                    whileHover={{ y: -8 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     <div className="dev-header">
                                         <div className="dev-avatar">SK</div>
