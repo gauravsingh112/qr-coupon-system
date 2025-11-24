@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { QrCode, Gift, Shield, Zap, TrendingUp, Users, ArrowRight, Sparkles } from 'lucide-react';
+import { QrCode, Gift, Shield, Zap, TrendingUp, Users, ArrowRight, Sparkles, Mail } from 'lucide-react';
 import ThemeToggle from '../components/ThemeToggle';
 import './LandingPage.css';
 
@@ -292,15 +292,86 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* Footer */}
+            {/* Animated Footer */}
             <footer className="landing-footer">
+                <div className="footer-bg">
+                    <div className="footer-gradient"></div>
+                    <div className="footer-grid-pattern"></div>
+                </div>
+
                 <div className="container">
                     <div className="footer-content">
-                        <div className="footer-brand">
-                            <QrCode size={28} />
-                            <span className="gradient-text">QR Coupon System</span>
-                        </div>
-                        <p>© 2025 QR Coupon. All rights reserved.</p>
+                        <motion.div
+                            className="footer-main"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div className="footer-brand-section">
+                                <motion.div
+                                    className="footer-logo"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <QrCode size={32} />
+                                    <span className="gradient-text">QR Coupon System</span>
+                                </motion.div>
+                                <p className="footer-tagline">Revolutionizing customer loyalty, one scan at a time.</p>
+
+                                <div className="team-info">
+                                    <h3 className="team-name">SG TEAM</h3>
+                                    <a href="mailto:sgteamdev@gmail.com" className="team-email">
+                                        <Mail size={16} />
+                                        sgteamdev@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="developers-section">
+                                <h3 className="dev-title">Meet the Developers</h3>
+                                <div className="dev-cards">
+                                    <motion.div
+                                        className="dev-card card-glass"
+                                        whileHover={{ y: -10, rotate: 1 }}
+                                    >
+                                        <div className="dev-avatar gradient-primary">
+                                            <span>GS</span>
+                                        </div>
+                                        <div className="dev-info">
+                                            <h4>Gaurav Singh</h4>
+                                            <p>Full Stack Developer</p>
+                                        </div>
+                                    </motion.div>
+
+                                    <motion.div
+                                        className="dev-card card-glass"
+                                        whileHover={{ y: -10, rotate: -1 }}
+                                    >
+                                        <div className="dev-avatar gradient-accent">
+                                            <span>SK</span>
+                                        </div>
+                                        <div className="dev-info">
+                                            <h4>Satyam Kumar</h4>
+                                            <p>Android + Full Stack Dev</p>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="footer-bottom"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.5 }}
+                        >
+                            <p>&copy; 2025 SG TEAM. All rights reserved.</p>
+                            <div className="footer-links">
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Terms of Service</a>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </footer>
