@@ -24,22 +24,23 @@ const ContactForm = () => {
         setStatus({ type: '', message: '' });
 
         try {
-            const response = await fetch('https://formsubmit.co/sgteamdev@gmail.com', {
+            // Create form data
+            const formDataToSend = new FormData();
+            formDataToSend.append('name', formData.name);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('message', formData.message);
+            formDataToSend.append('_subject', `New Contact from ${formData.name}`);
+            formDataToSend.append('_captcha', 'false');
+            formDataToSend.append('_template', 'table');
+
+            const response = await fetch('https://formsubmit.co/ajax/sgteamdev@gmail.com', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    message: formData.message,
-                    _subject: `New Contact Form Submission from ${formData.name}`,
-                    _captcha: 'false'
-                })
+                body: formDataToSend
             });
 
-            if (response.ok) {
+            const data = await response.json();
+
+            if (response.ok && data.success) {
                 setStatus({
                     type: 'success',
                     message: '✓ Message sent successfully! We\'ll get back to you soon.'
@@ -49,10 +50,15 @@ const ContactForm = () => {
                 throw new Error('Failed to send message');
             }
         } catch (error) {
+            // Fallback to mailto
+            const mailtoLink = `mailto:sgteamdev@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+            window.location.href = mailtoLink;
+
             setStatus({
-                type: 'error',
-                message: '✗ Failed to send message. Please try again or email us directly.'
+                type: 'success',
+                message: '✓ Opening your email client. Please send the pre-filled email.'
             });
+            setFormData({ name: '', email: '', message: '' });
         } finally {
             setIsSubmitting(false);
         }
